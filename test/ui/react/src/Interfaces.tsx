@@ -9,6 +9,20 @@
 
 import { ReactElement } from 'react';
 
+/** The four Kanban board lanes, matching the {@link Task} `status` field values. */
+export type TaskStatus = 'todo' | 'in-progress' | 'in-review' | 'done';
+
+/** A Task entity (see `src/Task.c3typ`) — one card on the Kanban board. */
+export interface Task {
+  id: string;
+  title: string;
+  tag?: string;
+  assignee?: string;
+  initials?: string;
+  status: TaskStatus;
+  sortOrder?: number;
+}
+
 export interface User {
   id: string;
   name: string;

@@ -7,7 +7,7 @@
  * This material may be covered by one or more patents or pending patent applications.
  */
 
-import { House } from 'lucide-react';
+import { KanbanSquare } from 'lucide-react';
 
 import { NavigationItem } from '@/types/navigation';
 
@@ -20,12 +20,12 @@ import { NavigationItem } from '@/types/navigation';
  */
 export const navigationConfig: NavigationItem[] = [
   {
-    id: 'dashboard',
+    id: 'board',
     path: '/',
-    icon: House,
-    iconActive: House,
-    label: 'Dashboard',
-    tooltip: 'Dashboard Overview',
+    icon: KanbanSquare,
+    iconActive: KanbanSquare,
+    label: 'Board',
+    tooltip: 'Task Flow Board',
   },
 
   /*

@@ -1,0 +1,9 @@
+[
+  { "id": "seed_task_t1", "title": "Map the onboarding flow", "tag": "Research", "assignee": "Mara", "initials": "M", "status": "todo", "sortOrder": 0 },
+  { "id": "seed_task_t2", "title": "Draft the depth-palette spec", "tag": "Design", "assignee": "Jonas", "initials": "J", "status": "todo", "sortOrder": 1 },
+  { "id": "seed_task_t3", "title": "Collect field reference photos", "tag": "Assets", "assignee": "Priya", "initials": "P", "status": "todo", "sortOrder": 2 },
+  { "id": "seed_task_t4", "title": "Build the drag-and-drop engine", "tag": "Build", "assignee": "Dev", "initials": "D", "status": "in-progress", "sortOrder": 0 },
+  { "id": "seed_task_t5", "title": "Tune the column glow states", "tag": "Design", "assignee": "Jonas", "initials": "J", "status": "in-progress", "sortOrder": 1 },
+  { "id": "seed_task_t6", "title": "QA the vertical scroll on mobile", "tag": "QA", "assignee": "Tom", "initials": "T", "status": "in-review", "sortOrder": 0 },
+  { "id": "seed_task_t7", "title": "Ship the landing hero", "tag": "Ship", "assignee": "Mara", "initials": "M", "status": "done", "sortOrder": 0 }
+]

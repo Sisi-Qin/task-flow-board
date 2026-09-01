@@ -9,7 +9,7 @@
 
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Dashboard from './pages/Dashboard/Dashboard';
+import KanbanBoard from './pages/KanbanBoard/KanbanBoard';
 import SideNav from './components/SideNav/SideNav';
 import ErrorReporterProvider from './components/ErrorBoundary/ErrorBoundary';
 
@@ -22,7 +22,7 @@ export default function App() {
           <main className="flex-1 overflow-auto">
             <Routes>
               {/* Add page routes here */}
-              <Route path="/" element={<Dashboard />} />
+              <Route path="/" element={<KanbanBoard />} />
               <Route
                 path="*"
                 element={

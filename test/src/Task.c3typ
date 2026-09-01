@@ -1,0 +1,45 @@
+/**
+ * A single task card on the Kanban / Jira-like progress board.
+ *
+ * Each {@link Task} belongs to exactly one board lane at a time, identified by
+ * {@link Task#status}. Moving a task across lanes (via drag-and-drop or the
+ * left/right controls in the UI) is a plain update of the {@link Task#status}
+ * field using the built-in `merge`/`upsert` CRUD API — no custom methods are
+ * required.
+ */
+entity type Task mixes Persistable {
+
+  /**
+   * The task summary shown on the card, e.g. "Map the onboarding flow".
+   */
+  title: !string
+
+  /**
+   * Short category label rendered as a pill on the card, e.g. "Research",
+   * "Design", "Build", "QA", or "Ship". Free-form; not constrained to a fixed set.
+   */
+  tag: string
+
+  /**
+   * Display name of the person the task is assigned to, e.g. "Mara".
+   */
+  assignee: string
+
+  /**
+   * The {@link Task#assignee}'s initials shown in the card avatar, e.g. "M".
+   */
+  initials: string
+
+  /**
+   * The board lane the task currently occupies. Exactly one of:
+   * `'todo'`, `'in-progress'`, `'in-review'`, or `'done'`. Updating this field
+   * is what moves the card between lanes.
+   */
+  status: !string
+
+  /**
+   * Stable display order of the task within its lane (ascending). Lets the board
+   * render cards in a deterministic order rather than by insertion/fetch order.
+   */
+  sortOrder: int
+}
