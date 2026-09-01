@@ -61,6 +61,27 @@ const COLUMNS: { id: Status; label: string; color: string; dot: string }[] = [
   { id: "done", label: "Done", color: "sage", dot: "bg-sage shadow-sage/60" },
 ];
 
+const COLUMN_HOVER_RING: Record<Status, string> = {
+  todo: "hover:ring-glow/40",
+  "in-progress": "hover:ring-coral/40",
+  "in-review": "hover:ring-amber/40",
+  done: "hover:ring-sage/40",
+};
+
+const COLUMN_SHADOW: Record<Status, string> = {
+  todo: "hover:shadow-glow/20",
+  "in-progress": "hover:shadow-coral/20",
+  "in-review": "hover:shadow-amber/20",
+  done: "hover:shadow-sage/20",
+};
+
+const TAG_CLASSES: Record<Status, string> = {
+  todo: "bg-glow/10 text-glow ring-glow/20",
+  "in-progress": "bg-coral/10 text-coral ring-coral/20",
+  "in-review": "bg-amber/10 text-amber ring-amber/20",
+  done: "bg-sage/10 text-sage ring-sage/20",
+};
+
 const INITIAL_TASKS: Task[] = [
   {
     id: "t1",
