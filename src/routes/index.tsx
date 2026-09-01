@@ -173,8 +173,10 @@ function Index() {
       const idx = COLUMNS.findIndex((c) => c.id === task.status);
       const nextIdx = direction === "left" ? idx - 1 : idx + 1;
       if (nextIdx < 0 || nextIdx >= COLUMNS.length) return prev;
+      const nextColumn = COLUMNS[nextIdx];
+      if (!nextColumn) return prev;
       return prev.map((t) =>
-        t.id === taskId ? { ...t, status: COLUMNS[nextIdx].id } : t,
+        t.id === taskId ? { ...t, status: nextColumn.id } : t,
       );
     });
   };
