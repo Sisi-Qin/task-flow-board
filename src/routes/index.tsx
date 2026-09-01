@@ -321,8 +321,13 @@ function TaskCard({
   isLast,
   isOverlay,
 }: TaskCardProps) {
-  const { attributes, listeners, setNodeRef, transform, isDragging } =
-    useDraggable({ id: task.id });
+  const {
+    attributes,
+    listeners,
+    setNodeRef: setDragRef,
+    transform,
+    isDragging,
+  } = useDraggable({ id: task.id });
 
   const style = {
     transform: CSS.Translate.toString(transform),
@@ -330,16 +335,14 @@ function TaskCard({
 
   return (
     <article
-      ref={setNodeRef}
+      ref={setDragRef}
       style={style}
-      {...attributes}
-      {...listeners}
       className={`group rounded-[min(1vw,12px)] bg-deep/70 p-3.5 ring-1 ring-cyan-50/10 transition-all duration-300 ${
         isDragging ? "opacity-30" : "opacity-100"
       } ${
         isOverlay
           ? "cursor-grabbing shadow-xl ring-glow/50"
-          : `cursor-grab hover:-translate-y-0.5 ${CARD_HOVER_RING[task.status]}`
+          : `hover:-translate-y-0.5 ${CARD_HOVER_RING[task.status]}`
       }`}
     >
       <div className="flex items-start justify-between gap-2">
@@ -366,28 +369,27 @@ function TaskCard({
         {!isOverlay && (
           <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
             <button
-              onPointerDown={(e) => e.stopPropagation()}
-              onClick={(e) => {
-                e.stopPropagation();
-                onMoveLeft?.();
-              }}
+              type="button"
+              onClick={() => onMoveLeft?.()}
               disabled={isFirst}
               aria-label="Move left"
               className="grid size-6 place-items-center rounded text-cyan-100/50 transition-colors hover:bg-cyan-50/10 hover:text-glow disabled:opacity-30"
             >
               <ChevronLeft className="size-4" />
             </button>
-            <div className="text-cyan-100/20">
+            <div
+              {...attributes}
+              {...listeners}
+              className="cursor-grab text-cyan-100/20 hover:text-cyan-100/40 active:cursor-grabbing"
+              aria-label="Drag task"
+              role="button"
+              tabIndex={0}
+            >
               <GripVertical className="size-4" />
             </div>
             <button
               type="button"
-              onPointerDown={(e) => e.stopPropagation()}
-              onClick={(e) => {
-                e.stopPropagation();
-                console.log("move right clicked", task.id);
-                onMoveRight?.();
-              }}
+              onClick={() => onMoveRight?.()}
               disabled={isLast}
               aria-label="Move right"
               className="grid size-6 place-items-center rounded text-cyan-100/50 transition-colors hover:bg-cyan-50/10 hover:text-glow disabled:opacity-30"
