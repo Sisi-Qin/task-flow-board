@@ -381,9 +381,11 @@ function TaskCard({
               <GripVertical className="size-4" />
             </div>
             <button
+              type="button"
               onPointerDown={(e) => e.stopPropagation()}
               onClick={(e) => {
                 e.stopPropagation();
+                console.log("move right clicked", task.id);
                 onMoveRight?.();
               }}
               disabled={isLast}
