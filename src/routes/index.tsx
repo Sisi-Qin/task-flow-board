@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { useState } from "react";
 import {
   DndContext,
+  DragOverlay,
   type DragEndEvent,
-  type DragOverlay,
   type DragStartEvent,
   useDraggable,
   useDroppable,
