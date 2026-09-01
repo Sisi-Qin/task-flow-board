@@ -304,7 +304,6 @@ function Column({ column, tasks, onMove, delay }: ColumnProps) {
 
 interface TaskCardProps {
   task: Task;
-  columnColor?: string;
   onMoveLeft?: () => void;
   onMoveRight?: () => void;
   isFirst?: boolean;
