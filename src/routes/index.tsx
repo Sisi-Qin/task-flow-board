@@ -315,7 +315,6 @@ interface TaskCardProps {
 
 function TaskCard({
   task,
-  columnColor = "glow",
   onMoveLeft,
   onMoveRight,
   isFirst,
@@ -340,15 +339,15 @@ function TaskCard({
       } ${
         isOverlay
           ? "cursor-grabbing shadow-xl ring-glow/50"
-          : "cursor-grab hover:-translate-y-0.5"
-      } hover:ring-${columnColor}/40`}
+          : `cursor-grab hover:-translate-y-0.5 ${CARD_HOVER_RING[task.status]}`
+      }`}
     >
       <div className="flex items-start justify-between gap-2">
         <p className="text-sm font-medium leading-snug text-cyan-50 text-pretty">
           {task.title}
         </p>
         <span
-          className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ring-1 bg-${columnColor}/10 text-${columnColor} ring-${columnColor}/20`}
+          className={`shrink-0 rounded-full px-2 py-0.5 text-[10px] font-medium ring-1 ${TAG_CLASSES[task.status]}`}
         >
           {task.tag}
         </span>
