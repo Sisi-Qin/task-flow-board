@@ -366,6 +366,7 @@ function TaskCard({
         {!isOverlay && (
           <div className="flex items-center gap-1 opacity-0 transition-opacity group-hover:opacity-100">
             <button
+              onPointerDown={(e) => e.stopPropagation()}
               onClick={(e) => {
                 e.stopPropagation();
                 onMoveLeft?.();
@@ -380,6 +381,7 @@ function TaskCard({
               <GripVertical className="size-4" />
             </div>
             <button
+              onPointerDown={(e) => e.stopPropagation()}
               onClick={(e) => {
                 e.stopPropagation();
                 onMoveRight?.();
