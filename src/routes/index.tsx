@@ -291,7 +291,6 @@ function Column({ column, tasks, onMove, delay }: ColumnProps) {
           <TaskCard
             key={task.id}
             task={task}
-            columnColor={column.color}
             onMoveLeft={() => onMove(task.id, "left")}
             onMoveRight={() => onMove(task.id, "right")}
             isFirst={column.id === "todo"}
