@@ -244,14 +244,11 @@ function Column({ column, tasks, onMove, delay }: ColumnProps) {
       ref={setNodeRef}
       className={`flex shrink-0 snap-start flex-col rounded-[min(1.5vw,18px)] bg-panel/40 ring-1 ring-cyan-50/10 transition-all duration-300 animate-rise w-[78vw] max-w-[300px] min-h-[24rem] sm:w-auto sm:max-w-none ${
         isOver
-          ? `ring-${column.color}/60 shadow-[0_0_34px_-6px]`
-          : `hover:ring-${column.color}/40 hover:shadow-[0_0_34px_-6px]`
+          ? `${COLUMN_OVER_RING[column.id]} shadow-[0_0_34px_-6px] ${COLUMN_OVER_SHADOW[column.id]}`
+          : `${COLUMN_HOVER_RING[column.id]} hover:shadow-[0_0_34px_-6px] ${COLUMN_SHADOW[column.id]}`
       }`}
       style={{
         animationDelay: `${120 + delay}ms`,
-        boxShadow: isOver
-          ? `0 0 34px -6px color-mix(in srgb, var(--${column.color}) 25%, transparent)`
-          : undefined,
       }}
     >
       <div className="flex items-center justify-between px-4 pb-3 pt-4">
