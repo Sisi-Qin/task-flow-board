@@ -82,6 +82,27 @@ const TAG_CLASSES: Record<Status, string> = {
   done: "bg-sage/10 text-sage ring-sage/20",
 };
 
+const CARD_HOVER_RING: Record<Status, string> = {
+  todo: "hover:ring-glow/40",
+  "in-progress": "hover:ring-coral/40",
+  "in-review": "hover:ring-amber/40",
+  done: "hover:ring-sage/40",
+};
+
+const COLUMN_OVER_RING: Record<Status, string> = {
+  todo: "ring-glow/60",
+  "in-progress": "ring-coral/60",
+  "in-review": "ring-amber/60",
+  done: "ring-sage/60",
+};
+
+const COLUMN_OVER_SHADOW: Record<Status, string> = {
+  todo: "shadow-glow/30",
+  "in-progress": "shadow-coral/30",
+  "in-review": "shadow-amber/30",
+  done: "shadow-sage/30",
+};
+
 const INITIAL_TASKS: Task[] = [
   {
     id: "t1",
